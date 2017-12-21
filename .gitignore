@@ -35,3 +35,7 @@ ofc-order-main.log.*
 /src/main/resources/mybatis-generator/generator.properties
 logs/
 /src/main/resources/mybatis-generator/generatorConfig.xml
+log/
+/.idea/
+/target/
+/.gitignore
