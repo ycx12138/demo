@@ -12,11 +12,11 @@ import java.util.List;
  */
 public interface TestInterFace {
 
-    public int testInterFace();
+    int testInterFace();
 
-    public UserInfo testUser();
+    UserInfo testUser();
 
-    public int insertUser(UserInfo userInfo);//新增的接口
+    int insertUser(UserInfo userInfo);//新增的接口
 
     //新增加的方法
     List<UserInfo> selectALL();

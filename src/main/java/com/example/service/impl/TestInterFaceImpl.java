@@ -41,7 +41,7 @@ public class TestInterFaceImpl implements TestInterFace {
             String s = userInfo.getUsername();
             i = 0;
             System.out.println(userInfo.toString());
-            i = userDao.insert(userInfo);
+            i = userDao.insertUser(userInfo.getUsername(),userInfo.getPassword());
             log.info("插入成功！！！！");
         } catch (Exception e) {
             StackTraceElement[] st = e.getStackTrace();
