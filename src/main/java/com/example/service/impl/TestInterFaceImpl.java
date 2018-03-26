@@ -58,9 +58,4 @@ public class TestInterFaceImpl implements TestInterFace {
         return userDao.selectAll();
     }
 
-    public static void main(String args[]) {
-        String exclass = "12345";
-        System.out.println(exclass.length());
-        String s1= exclass.substring(1, exclass.length() - 1);
-    }
 }
