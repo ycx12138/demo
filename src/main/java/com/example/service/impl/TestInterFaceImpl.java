@@ -30,7 +30,7 @@ public class TestInterFaceImpl implements TestInterFace {
 
     @Override
     public UserInfo testUser() {
-        return new UserInfo();
+        return new UserInfo("于晨曦",3);
     }
 
     //新增的接口实现
@@ -41,7 +41,7 @@ public class TestInterFaceImpl implements TestInterFace {
             String s = userInfo.getUsername();
             i = 0;
             System.out.println(userInfo.toString());
-            i = userDao.insertUser(userInfo.getUsername(),userInfo.getPassword());
+            i = userDao.insertUser(userInfo.getUsername(),userInfo.getAge());
             log.info("插入成功！！！！");
         } catch (Exception e) {
             StackTraceElement[] st = e.getStackTrace();

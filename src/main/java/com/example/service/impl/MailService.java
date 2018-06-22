@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 import java.io.File;
+import java.util.Arrays;
 
 /**
  * @author: ycx
@@ -44,7 +45,6 @@ public class MailService {
         message.setTo(to);
         message.setSubject(subject);
         message.setText(content);
-
         try {
             sender.send(message);
             logger.info("简单邮件已经发送。");

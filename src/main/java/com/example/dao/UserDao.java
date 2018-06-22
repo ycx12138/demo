@@ -15,11 +15,11 @@ import org.apache.ibatis.annotations.Select;
  */
 @Mapper
 public interface UserDao extends MyMapper<UserInfo>{
-    @Select("SELECT * FROM USERINFO WHERE username = #{username}")
+    @Select("SELECT * FROM userinfo WHERE username = #{username}")
     UserInfo findByName(@Param("username") String username);
 
-    @Insert("INSERT INTO USERINFO(username, password) VALUES(#{username}, #{password})")
-    int insertUser(@Param("username") String name, @Param("password") String password);
+    @Insert("INSERT INTO userinfo(username, password) VALUES(#{username}, #{password})")
+    int insertUser(@Param("username") String name, @Param("password") Integer age);
 
 }
 

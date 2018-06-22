@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>welcome to spring boot</title>
+	<title>welcome to spring boot</title>c
 </head>
 <body>
 <h4>亲爱的${toUserName}，你好！</h4>

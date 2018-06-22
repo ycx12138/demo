@@ -24,7 +24,7 @@ public class UserInfo implements Serializable {
     @Column(name = "username")
     private String username;
     @Column(name = "password")
-    private String password;
+    private Integer age;
     @Column(name = "update_time")
     @JsonFormat(pattern = "yyyy/MM/dd HH/mm/ss")
     private Date updateTime;
@@ -38,7 +38,7 @@ public class UserInfo implements Serializable {
     @Column(name = "money")
     private double money;
 
-    public String getUsername() {
+    public  String getUsername() {
         return username;
     }
 
@@ -46,13 +46,14 @@ public class UserInfo implements Serializable {
         this.username = username;
     }
 
-    public String getPassword() {
-        return password;
+    public Integer getAge() {
+        return age;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setAge(Integer age) {
+        this.age = age;
     }
+
     @JsonFormat(pattern = "yyyy/MM/dd HH/mm/ss")
     public Date getUpdateTime() {
         return updateTime;
@@ -84,5 +85,13 @@ public class UserInfo implements Serializable {
 
     public void setMoney(double money) {
         this.money = money;
+    }
+
+    public UserInfo(String username, Integer age) {
+        this.username = username;
+        this.age = age;
+    }
+
+    public UserInfo() {
     }
 }

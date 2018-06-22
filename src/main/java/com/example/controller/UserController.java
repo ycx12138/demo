@@ -10,6 +10,7 @@ import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
 import lombok.extern.slf4j.Slf4j;
+import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.freemarker.FreeMarkerTemplateUtils;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -43,6 +45,11 @@ public class UserController {
     @Autowired
     Configuration configuration;
 
+    /**
+     * @author: ycx
+     * @date: 2018/3/26 14:06
+     * @description: get
+     */
     @RequestMapping(value = "/get", method = RequestMethod.POST)
     @ResponseBody
     public UserInfo getUser() {
@@ -150,8 +157,9 @@ public class UserController {
                 "D:\\1.jpg",
                 rscId);
     }
-    //增加新的对外访问接口
 
+
+    //增加新的对外访问接口
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseBody
     public MessageServer add(@RequestBody DemoData<UserInfo> demoData) throws Exception {
@@ -200,7 +208,7 @@ public class UserController {
     }
 
     //新增的接口方法
-    @RequestMapping(value = "/getall", method = RequestMethod.POST)
+    @RequestMapping(value = "/getall", method = RequestMethod.POST, produces = "application/json; charset=utf-8")
     @ResponseBody
     public List<UserInfo> getall() {
         log.info("=============================" + "今晚打老虎" + "=============================");
@@ -214,11 +222,6 @@ public class UserController {
         return list;
     }
 
-    public static void main(String[] args) {
-        String s = "1232213" + "" + "成功";
-        System.out.println(s);
-    }
-
     public static double sumOfList(List<? extends Number> list) {
         double s = 0.0;
         for (Number n : list) {
@@ -227,4 +230,21 @@ public class UserController {
         }
         return s;
     }
+
+    @RequestMapping(value = "/test", method = RequestMethod.POST)
+    @ResponseBody
+    public void test(HttpServletRequest request){
+        byte[] bytes = new byte[1024 * 1024];
+        try {
+            request.getInputStream().read(bytes);
+            String params = new String(bytes, "utf-8");
+            System.out.println(params);
+            JSONObject jsonObject = JSONObject.fromObject(params);
+//            OrderListParam orderListParam = (OrderListParam) JSONObject.toBean(jsonObject,OrderListParam.class);
+//            System.out.println(orderListParam.getSecondaryClassify());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 }

@@ -12,6 +12,8 @@ import java.util.List;
  */
 public interface TestInterFace {
 
+    public static final String SSS = "222222222";
+
     int testInterFace();
 
     UserInfo testUser();
